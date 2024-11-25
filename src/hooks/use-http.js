@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { instance } from "../services/https.services";
+import instance from "../services/https.services";
 
 export const useHttps = () => {
   const [response, setResponse] = useState();
