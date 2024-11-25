@@ -1,18 +1,13 @@
+import useHttps from "./hooks/use-http";
+
 function App() {
-  const handleClick = async () => {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        console.log(xhttp.response);
-      }
-    };
-    xhttp.open("GET", "https://jsonplaceholder.typicode.com/todos/", true);
-    xhttp.send();
-  };
+  const {getRequest, response} = useHttps();
+  console.log(response?.data);
+  
   return (
     <>
       <h1>Hi</h1>
-      <button onClick={handleClick}>Click to fetch data</button>
+      <button onClick={()=>getRequest("/todos/12")}>Click to fetch data</button>
     </>
   );
 }
